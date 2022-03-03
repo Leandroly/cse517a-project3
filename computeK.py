@@ -28,8 +28,8 @@ def computeK(kernel_type, X, Z, kpar):
     if(kernel_type == 'linear'):
         K = np.dot(np.transpose(X),Z)
     if(kernel_type == 'poly'):
-        K = (np.dot(np.transpose(X),Z) + 1) * kpar
+        K = (np.dot(np.transpose(X),Z) + 1) ** kpar
     if(kernel_type == 'rbf'):
-        k = np.exp(-kpar * (l2distance(X,Z) * l2distance(X,Z)))
+        K = np.exp(-kpar * (l2distance(X,Z) * l2distance(X,Z)))
     
     return K
